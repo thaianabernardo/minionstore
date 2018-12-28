@@ -1,4 +1,3 @@
-
 const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -71,7 +70,9 @@ app.post('/users', function (req, res) {
 });
 
 //get lista de produtos
-app.get('/products/', function (req, res) {
+app.get('/products', function (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   const params = {
     TableName: PRODUCT_TABLE,
   }     
@@ -85,9 +86,9 @@ app.get('/products/', function (req, res) {
       var products = [];
       result.Items.forEach((product) => { 
         var newProduct = {
-          img: product.img.S,
-          name: product.name.S,
-          productId: product.productId.S
+          img: product.img,
+          name: product.name,
+          productId: product.productId
         }
         products.push(newProduct);
       });
@@ -101,6 +102,10 @@ app.get('/products/', function (req, res) {
 
 // criando Endpoint da reserva
 app.post('/reserve', function (req, res) {
+
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   //Pegando os dados que vem da interface e colocando em uma variavel
   const { userId, productId } = req.body;
 
