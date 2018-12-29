@@ -103,8 +103,7 @@ app.get('/products', function (req, res) {
 // criando Endpoint da reserva
 app.post('/reserve', function (req, res) {
 
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  
 
   //Pegando os dados que vem da interface e colocando em uma variavel
   const { userId, productId } = req.body;

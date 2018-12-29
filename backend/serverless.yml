@@ -30,7 +30,7 @@ provider:
     PRODUCT_TABLE: ${self:custom.tablePName}
     PRODRESERV_TABLE: ${self:custom.tablePRName}
     SOURCE_EMAIL: "thaianabernardo@gmail.com"
-    DEST_EMAIL: "thaianabernardo@gmail.com"
+    DEST_EMAIL: "raquel@inventosdigitais.com.br"
 
 
 functions:
